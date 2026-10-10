@@ -64,6 +64,7 @@ end
 function obj:DeleteEntity()
     print("Deleting entity ID: "..self.id)
     self.model:Destroy()
+    game.ReplicatedStorage.Shared.RbxEntity.RemoveEntity:Invoke(self.id)
     self.model = nil
     self.deleted = true
 end

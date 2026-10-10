@@ -3,6 +3,13 @@ local entityobj = require(script.Parent.rbxentmodules.EntityObj)
 local entities = {}
 local entcount = 1
 const plrs = game:GetService("Players")
+local removeEntityEvent = Instance.new("BindableFunction")
+removeEntityEvent.Parent = script
+removeEntityEvent.Name = "RemoveEntity"
+removeEntityEvent.OnInvoke = function(id)
+	print("[debug] bindable: entities[id] = nil. ")
+	entities[id] = nil
+end
 
 function mod:createEntity(modelusername)
 	print("Creating new entity with ID: "..entcount)
