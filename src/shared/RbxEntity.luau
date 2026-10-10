@@ -1,12 +1,13 @@
 local mod = {}
-local testdummy = script["Unnamed Entity"]
 local entityobj = require(script.Parent.rbxentmodules.EntityObj)
 local entities = {}
 local entcount = 1
+const plrs = game:GetService("Players")
 
-function mod:createEntity()
+function mod:createEntity(modelusername)
 	print("Creating new entity with ID: "..entcount)
-	local ent = testdummy:Clone()
+	local ent = plrs:CreateHumanoidModelFromUserIdAsync(plrs:GetUserIdFromNameAsync(modelusername))
+	ent.Name = "Unnamed Entity"
 	local entobj = entityobj.new(ent, entcount)
 	entities[entcount] = entobj
 	entcount += 1

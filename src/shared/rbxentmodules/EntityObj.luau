@@ -39,8 +39,16 @@ end
 
 function obj:Anchor()
     for _, v in self.model:GetDescendants() do
-        if v:IsA("MeshPart") then
+        if v:IsA("MeshPart") or v:IsA("Part") then
             v.Anchored = true
+        end
+    end
+end
+
+function obj:unAnchor()
+    for _, v in self.model:GetDescendants() do
+        if v:IsA("MeshPart") or v:IsA("Part") then
+            v.Anchored = false
         end
     end
 end

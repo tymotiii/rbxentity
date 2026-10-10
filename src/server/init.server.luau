@@ -1,10 +1,9 @@
 local rbxent = require(game.ReplicatedStorage.Shared.RbxEntity)
 
-local ent1 = rbxent:createEntity()
+local ent1 = rbxent:createEntity("tymos1316")
 
 ent1:setName("Hello world!")
 ent1:Spawn("fdsafada")
-const myid = ent1.id
-ent1:DeleteEntity()
-
-warn(rbxent:id_getEntityExistsFrom(myid))
+ent1:Anchor()
+task.wait(10)
+ent1:unAnchor()
