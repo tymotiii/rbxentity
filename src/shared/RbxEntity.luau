@@ -23,6 +23,10 @@ function mod:createEntity(modelusername)
 end
 
 function mod:id_getEntity(id)
+	if entities[id] == nil then
+		warn("Entity with id "..id.." does not exists! returning 0.")
+		return 0
+	end
 	return entities[id]
 end
 

@@ -26,7 +26,7 @@ end
 
 function obj:DeSpawn()
     print("Despawning entity with id: "..self.id)
-    self.model.Parent = script
+    self.model.Parent = nil
 end
 
 function obj:getEntityModel()
