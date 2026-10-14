@@ -54,7 +54,11 @@ function obj:unAnchor()
 end
 
 function obj:setCFrame(Cf: CFrame)
-    self.model.HumanoidRootPart.CFrame = Cf
+    if self.model.PrimaryPart ~= nil then
+        self.model.PrimaryPart.CFrame = Cf
+    else
+        self.model.HumanoidRootPart.CFrame = Cf
+    end
 end
 
 function obj:getCFrame()
